@@ -46,20 +46,10 @@ def joinZoom(context, url_meet, passStr):
         except NoSuchElementException:
             pass
         for i in range(0, 20):
-            browser.find_element(By.CSS_SELECTOR, "#inputname").send_keys(Keys.BACK_SPACE)
+            browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         browser.find_element(By.CSS_SELECTOR, "#inputname").send_keys(name)
         time.sleep(10)
         WebDriverWait(browser, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, "#inputpasscode"))).click()
-        time.sleep(10)
-        browser.find_element(By.CSS_SELECTOR, "#inputpasscode").send_keys(Keys.BACK_SPACE)
-        time.sleep(10)
-        browser.find_element(By.CSS_SELECTOR, "#inputpasscode").send_keys(passStr)
-        time.sleep(10)
-        WebDriverWait(browser, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, "#joinBtn"))).click()
-        time.sleep(10)
-        WebDriverWait(browser, 10).until(
-            EC.visibility_of_element_located((By.CSS_SELECTOR, "#preview-audio-control-button"))).click()
-        time.sleep(10)
         try:
             WebDriverWait(browser, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, "#preview-audio-control-button > svg:nth-child(1) > path:nth-child(1)"))).click()
             time.sleep(20)
