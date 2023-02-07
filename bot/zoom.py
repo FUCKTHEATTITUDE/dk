@@ -35,8 +35,8 @@ def joinZoom(context, url_meet, passStr):
             execl(executable, executable, "chromium.py")
     try:
         name = "sidharth"
-        browser.get('https://zoom.us')
-        browser.get('https://zoom.us/wc/join/'+ url_meet)
+        browser.get('https://dulink.in')
+        browser.get('https://dulink.in/'+ url_meet)
         WebDriverWait(browser, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, "#inputname"))).click()
         try:
             elem = browser.find_element(
