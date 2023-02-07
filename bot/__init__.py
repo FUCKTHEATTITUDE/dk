@@ -24,6 +24,7 @@ try:
 	options.headless = True
 	options.add_argument(f'user-agent={user_agent}')
 	options.add_experimental_option("detach", True)
+	options.add_argument("--window-size=1920,800")
 	options.add_argument("--allow-file-access-from-files")
 	options.add_argument('--no-sandbox')
 	options.add_argument('--disable-dev-shm-usage')
@@ -36,7 +37,6 @@ try:
 	options.add_argument("--proxy-server='direct://'")
 	options.add_argument("--proxy-bypass-list=*")
 	options.add_argument("--disable-infobars")
-	options.add_argument("--start-maximized")
 	#browser = webdriver.Chrome(options=options,desired_capabilities = desired_cap)
 	browser = webdriver.Chrome(options=options,desired_capabilities = desired_cap)
 	#browser.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
