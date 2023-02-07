@@ -37,7 +37,7 @@ def joinZoom(context, url_meet, passStr):
         name = "sidharth"
         browser.get('https://dulink.in')
         browser.get('https://dulink.in/'+ url_meet)
-        WebDriverWait(browser, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, "#inputname"))).click()
+        WebDriverWait(browser, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, "#btn3"))).click()
         try:
             elem = browser.find_element(
                 by='id', value='onetrust-accept-btn-handler')
@@ -47,11 +47,9 @@ def joinZoom(context, url_meet, passStr):
             pass
         for i in range(0, 20):
             browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-        browser.find_element(By.CSS_SELECTOR, "#inputname").send_keys(name)
-        time.sleep(10)
-        WebDriverWait(browser, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, "#inputpasscode"))).click()
+        WebDriverWait(browser, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, "btn6"))).click()
         try:
-            WebDriverWait(browser, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, "#preview-audio-control-button > svg:nth-child(1) > path:nth-child(1)"))).click()
+            WebDriverWait(browser, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, "#btn6"))).click()
             time.sleep(20)
         except NoSuchElementException:
             pass
