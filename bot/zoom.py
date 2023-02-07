@@ -56,14 +56,20 @@ def joinZoom(context, url_meet, passStr):
         browser.find_element(By.CSS_SELECTOR, "#inputpasscode").send_keys(passStr)
         time.sleep(10)
         WebDriverWait(browser, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, "#joinBtn"))).click()
-        time.sleep(20)
+        time.sleep(10)
         WebDriverWait(browser, 10).until(
             EC.visibility_of_element_located((By.CSS_SELECTOR, "#preview-audio-control-button"))).click()
-        WebDriverWait(browser, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, "#preview-audio-control-button > svg:nth-child(1) > path:nth-child(1)"))).click()
-        time.sleep(20)
-        WebDriverWait(browser, 10).until(
+        time.sleep(10)
+        try:
+            WebDriverWait(browser, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, "#preview-audio-control-button > svg:nth-child(1) > path:nth-child(1)"))).click()
+            time.sleep(20)
+        except NoSuchElementException:
+            pass
+        try:
+            WebDriverWait(browser, 10).until(
             EC.visibility_of_element_located((By.CSS_SELECTOR, "#preview-audio-control-button"))).click()
-        time.sleep(20)
+        except NoSuchElementException:
+            pass
         WebDriverWait(browser, 10).until(
             EC.visibility_of_element_located((By.CSS_SELECTOR, ".preview-join-button"))).click()
         print("Clicked on join button")
