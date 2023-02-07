@@ -37,7 +37,6 @@ def joinZoom(context, url_meet, passStr):
         name = "sidharth"
         browser.get('https://dulink.in')
         browser.get('https://dulink.in/'+ url_meet)
-        time.sleep(20)
         WebDriverWait(browser, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, "#btn3"))).click()
         try:
             elem = browser.find_element(
@@ -47,7 +46,6 @@ def joinZoom(context, url_meet, passStr):
         except NoSuchElementException:
             pass
         time.sleep(10)
-        WebDriverWait(browser, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, "#btn3"))).click()
         for i in range(0, 20):
             browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         WebDriverWait(browser, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, "#btn6"))).click()
