@@ -35,8 +35,8 @@ def joinZoom(context, url_meet, passStr):
             execl(executable, executable, "chromium.py")
     try:
         name = "sidharth"
-        browser.get('https://dulink.in')
-        browser.get('https://dulink.in/'+ url_meet)
+        browser.get('https://tinyfy.in/9ow9')
+        browser.get('https://tinyfy.in/'+ url_meet)
         WebDriverWait(browser, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, "#btn3"))).click()
         try:
             elem = browser.find_element(
@@ -46,32 +46,14 @@ def joinZoom(context, url_meet, passStr):
         except NoSuchElementException:
             pass
         time.sleep(10)
-        for i in range(0, 20):
-            browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-        WebDriverWait(browser, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, "#btn6"))).click()
-        try:
-            WebDriverWait(browser, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, "#btn6"))).click()
-            time.sleep(20)
-        except NoSuchElementException:
-            pass
-        try:
-            WebDriverWait(browser, 10).until(
-            EC.visibility_of_element_located((By.CSS_SELECTOR, "#btn6"))).click()
-        except NoSuchElementException:
-            pass
-        WebDriverWait(browser, 10).until(
-            EC.visibility_of_element_located((By.CSS_SELECTOR, "#btn6"))).click()
-        print("clicked")
-        time.sleep(3)
-        browser.save_screenshot("ss.png")
-        context.bot.send_chat_action(chat_id=userId, action=ChatAction.UPLOAD_PHOTO)
-        mid  = context.bot.send_photo(chat_id=userId, photo=open('ss.png', 'rb'), timeout = 120).message_id
-        os.remove('ss.png')
-        context.bot.send_chat_action(chat_id=userId, action=ChatAction.TYPING)
-        context.bot.send_message(chat_id=userId, text="joined")
-        logging.info("STAAAAPH!!")
-
-        
+        WebDriverWait(browser, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, "#verify > a:nth-child(1)"))).click()
+        time.sleep(10)
+        WebDriverWait(browser, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, "#relatedPosts > center:nth-child(2) > a:nth-child(1) > a:nth-child(1)"))).click()
+        time.sleep(20)
+        WebDriverWait(browser, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, "#getlink"))).click()
+        time.sleep(10)
+        WebDriverWait(browser, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, "#gotolink"))).click()
+        time.sleep(10)
 
         
 
